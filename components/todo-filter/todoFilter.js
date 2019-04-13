@@ -4,7 +4,10 @@ function TodoFilter() {
 
 angular.module('TodoApp').component('todoFilter', { // this has to be lowercase here. keep it the same as line 1
   template: `
-      <input type="text" placeholder="Filter your to-dos" ng-model="search" class="input-box" />
+      <input type="text" placeholder="Filter your to-dos" ng-model="$ctrl.task" class="input-box" />
   `, // or use templateUrl   
-  controller: TodoFilter
+  controller: TodoFilter,
+  bindings: {
+    task: '<',
+  }
 });
