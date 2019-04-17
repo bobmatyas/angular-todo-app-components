@@ -8,7 +8,7 @@ function TodoAdd() {
     newTask.task = task;
     newTask.completed = false;
     taskObject.push(newTask);
-    // this doesn't work now: $scope.addTaskValue = null;
+    addTaskValue = null;
   }
 
 

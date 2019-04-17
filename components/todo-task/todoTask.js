@@ -20,14 +20,13 @@ angular.module('TodoApp').component('todoTask', { // this has to be lowercase he
   template: `
 
   <ol class="to-do-list-container">
-  <li ng-cloak class="to-do-list-item" ng-repeat="todo in $ctrl.task | filter:search" ng-class="{ 'completed' : todo.completed === true }">
+  <li ng-cloak class="to-do-list-item" ng-repeat="todo in $ctrl.task | filter:$ctrl.search" ng-class="{ 'completed' : todo.completed === true }">
     
     <div class="to-do-list-item-inner">
       <button ng-if="todo.completed === false" id="completed" class="button-complete-task" ng-click="$ctrl.completeTask($ctrl.task, $index)">Complete</button>
-      
+    
       <div class="to-do-list-item-content">{{ todo.task }}</div>
       <div>
-        {{ $index }}
         <i class="material-icons" id="close-button" ng-click="$ctrl.removeTask($ctrl.task, $index)">clear</i>
       </div>
     </div>
@@ -36,6 +35,7 @@ angular.module('TodoApp').component('todoTask', { // this has to be lowercase he
   `, // or use templateUrl   
   controller: TodoTask,
   bindings: {
-    task: '<'
+    task: '<',
+    search: '<',
   }
 });
